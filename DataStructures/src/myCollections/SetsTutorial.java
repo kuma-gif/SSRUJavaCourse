@@ -8,7 +8,10 @@ public class SetsTutorial {
     public static void main() {
         HashSetTutorial();
         TreeSetTutorial();
+        LinkedHashSetTutorial();
+    }
 
+    private static void LinkedHashSetTutorial() {
         Set<Integer> queueSet = new LinkedHashSet<>();
         queueSet.add(10);
         queueSet.add(1999);
@@ -18,7 +21,6 @@ public class SetsTutorial {
         queueSet.add(100);
 
         System.out.println(queueSet);
-
     }
 
     private static void TreeSetTutorial() {
