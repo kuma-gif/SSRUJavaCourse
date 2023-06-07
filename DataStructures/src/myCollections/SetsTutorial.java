@@ -7,6 +7,25 @@ public class SetsTutorial {
 
     public static void main() {
         HashSetTutorial();
+        TreeSetTutorial();
+
+        Set<Integer> queueSet = new LinkedHashSet<>();
+        queueSet.add(10);
+        queueSet.add(1999);
+        queueSet.add(10);
+        queueSet.add(20);
+        queueSet.add(50);
+        queueSet.add(100);
+
+        System.out.println(queueSet);
+
+    }
+
+    private static void TreeSetTutorial() {
+        var rand = new Integer[] {3, 2, 3, 1, 1, 1, 0, 9, 5, 5};
+        Set<Integer> sortedSet = new TreeSet<>();
+        Collections.addAll(sortedSet, rand);
+        System.out.println(sortedSet);
     }
 
     private static void HashSetTutorial() {
