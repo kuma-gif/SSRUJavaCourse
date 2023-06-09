@@ -3,11 +3,10 @@ package com.adabrain.services.models;
 import java.util.UUID;
 
 public class Dog {
-    private final String id;
+    private final String id = UUID.randomUUID().toString();
     private String breed;
 
     public Dog(String id, String breed) {
-        this.id = id;
         this.breed = breed;
     }
 

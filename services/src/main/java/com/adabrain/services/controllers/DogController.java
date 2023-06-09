@@ -1,13 +1,14 @@
 package com.adabrain.services.controllers;
 
 import com.adabrain.services.models.Dog;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
+@RequestMapping("/dogs")
 public class DogController {
     private ArrayList<Dog> dogs = new ArrayList<>();
 
@@ -20,8 +21,42 @@ public class DogController {
         ));
     }
 
-    @GetMapping("/dogs")
+    @GetMapping
     public Iterable<Dog> getDogs() {
         return this.dogs;
+    }
+
+    @GetMapping("/getByBreed/{breedName}")
+    public Optional<Dog> getDogByBreedName(@PathVariable String breedName) {
+        for (Dog d : this.dogs) {
+            if (d.getBreed().equals(breedName)) {
+                return Optional.of(d);
+            }
+        }
+
+        return Optional.empty();
+    }
+
+    @PostMapping
+    public Dog postDog(@RequestBody Dog dog) {
+        this.dogs.add(dog);
+        return dog;
+    }
+
+    @PutMapping("updateDog/{id}")
+    public Dog putDog(@PathVariable String id, @RequestBody Dog newDog) {
+        int dogIdx = -1;
+        for(Dog d : this.dogs) {
+            if (d.getId().equals(id)) {
+                dogIdx = this.dogs.indexOf(d);
+
+                // Update data
+                this.dogs.set(dogIdx, newDog);
+            }
+        }
+
+        // If dogIdx is equal to -1 then create new dog from postDog() API
+        // Else return dog data got from RequestBody
+        return (dogIdx == -1) ? this.postDog(newDog) : newDog;
     }
 }
