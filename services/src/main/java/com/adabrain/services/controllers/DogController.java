@@ -13,7 +13,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/dogs")
 public class DogController {
-//    private  final DogRepository dogRepository;
+    private final DogRepository dogRepository;
     private ArrayList<Dog> dogs = new ArrayList<Dog>();
 
 //    public DogController(DogRepository dogRepository) {
