@@ -59,4 +59,9 @@ public class DogController {
         // Else return dog data got from RequestBody
         return (dogIdx == -1) ? this.postDog(newDog) : newDog;
     }
+
+    @DeleteMapping("/deleteDog/{id}")
+    public void deleteDog(@PathVariable String id) {
+        this.dogs.removeIf(d -> d.getId().equals(id));
+    }
 }
