@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 public class TaskManagementApplication {
-
 	@GetMapping("/")
 	public String home() {
-		return "AdaBrain";
+		return "<h1>Welcome to AdaBrain x SSRU APIs</h1>";
 	}
 
 	public static void main(String[] args) {
