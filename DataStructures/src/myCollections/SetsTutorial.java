@@ -32,7 +32,7 @@ public class SetsTutorial {
 
     private static void HashSetTutorial() {
         // Init HashSet
-        String[] heroes = new String[] {"Iron man", "Spider-Man", "Thor", "Spider-Man"};
+        String[] heroes = new String[] {"Antman", "Spider-Man", "Thor", "Spider-Man"};
         Set<String> signedHeroes = new HashSet<>();
         Collections.addAll(signedHeroes, heroes);
         System.out.println(signedHeroes);
